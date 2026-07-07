@@ -45,3 +45,12 @@ const calculator = {
     waitingForSecondOperand: false,
     operator: null,
 };
+
+function inputDigit(digit) {
+    if (calculator.displayValue === '0') {
+        calculator.displayValue = digit;
+    } else {
+        calculator.displayValue += digit;
+    }
+    console.log("Okay", calculator);
+}
