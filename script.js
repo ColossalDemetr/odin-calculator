@@ -1,3 +1,12 @@
+// Brain
+
+const calculator = {
+    displayValue: '0',
+    firstOperand: null,
+    waitingForSecondOperand: false,
+    operator: null,
+};
+
 // Search container
 const container = document.querySelector('#containerDigits');
 
@@ -38,13 +47,6 @@ const operate = function (operator, a, b) {
         return "Invalid operation";
     }
 }
-
-const calculator = {
-    displayValue: '0',
-    firstOperand: null,
-    waitingForSecondOperand: false,
-    operator: null,
-};
 
 function inputDigit(digit) {
     if (calculator.displayValue === '0') {
