@@ -1,3 +1,14 @@
+// Search container
+const container = document.querySelector('#containerDigits');
+
+// Listener
+container.addEventListener('click', (event) => {
+    if (event.target.tagName === 'BUTTON') {
+        const clickedDigit = event.target.textContent;
+        console.log("Pressed", clickedDigit);
+    }
+});
+
 const add = function (a, b) {
     return a + b;
 }
