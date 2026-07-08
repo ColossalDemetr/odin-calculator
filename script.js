@@ -1,5 +1,7 @@
-// Find the number buttons, console.log these clicks!
+// Find ALL the number buttons
 const numbers = document.querySelectorAll(".number");
+// Find ALL the operator buttons
+const operators = document.querySelectorAll(".operator")
 // Find the display div
 const display = document.querySelector("#displayInput");
 // Find the clear button
@@ -23,13 +25,22 @@ numbers.forEach((number) => {
             display.textContent = e.target.textContent;
             isWaitingForNewInput = false;
             return;
+        }
+        //Check if it's 0?
+        if (display.textContent === "0") {
+            display.textContent = e.target.textContent;
         } else {
-            //Check if it's 0?
-            if (display.textContent === "0") {
-                display.textContent = e.target.textContent;
-            } else {
-                display.textContent += e.target.textContent;
-            }  
-        } 
+            display.textContent += e.target.textContent;
+        }
+    
+    });
+});
+
+// Add operators you pressing on a display
+operators.forEach((operatorButton) => {
+    operator.addEventListener("click", (e) => {
+        firstNumber = display.textContent;
+        operator = e.target.textContent;
+        isWaitingForNewInput = true;
     });
 });
