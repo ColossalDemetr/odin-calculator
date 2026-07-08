@@ -38,7 +38,7 @@ numbers.forEach((number) => {
 
 // Add operators you pressing on a display
 operators.forEach((operatorButton) => {
-    operator.addEventListener("click", (e) => {
+    operatorButton.addEventListener("click", (e) => {
         firstNumber = display.textContent;
         operator = e.target.textContent;
         isWaitingForNewInput = true;
