@@ -7,3 +7,42 @@ body {
     height: 100vh;
 }
 
+.number,
+.operator {
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    width: 20px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#firstRow,
+#secondRow,
+#thirdRow,
+#fourthRow,
+#fifthRow {
+    display: flex;
+    justify-content: space-between;
+    gap: 2px;
+    margin-bottom: 2px;
+}
+
+#clearButton {
+    border: 1px solid black;
+    cursor: pointer;
+    width: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+#firstRow {
+    background-color: aliceblue;
+}
+
+.calculator {
+    border: 2px solid firebrick;
+    padding: 2px;
+}
