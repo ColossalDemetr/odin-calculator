@@ -19,11 +19,17 @@ clearBtn.addEventListener("click", () => {
 // Add numbers you pressing on a display
 numbers.forEach((number) => {
     number.addEventListener("click", (e) => {
-        //Check if it's 0?
-        if (display.textContent === "0") {
+        if (isWaitingForNewInput) {
             display.textContent = e.target.textContent;
+            isWaitingForNewInput = false;
+            return;
         } else {
-            display.textContent += e.target.textContent;
-        }   
+            //Check if it's 0?
+            if (display.textContent === "0") {
+                display.textContent = e.target.textContent;
+            } else {
+                display.textContent += e.target.textContent;
+            }  
+        } 
     });
 });
