@@ -6,6 +6,8 @@ const operators = document.querySelectorAll(".operator")
 const display = document.querySelector("#displayInput");
 // Find the clear button
 const clearBtn = document.querySelector("#clearButton");
+// Find the equal button
+const equalBtn = document.querySelector('#operatorEquals');
 
 
 
@@ -49,6 +51,13 @@ operators.forEach((operatorButton) => {
 });
 
 
+// Set up equal button
+equalBtn.addEventListener("click", (e) => {
+    
+});
+
+
+
 function operate (firstNumber, operator, secondNumber) {
     if (operator === "+") {
         return +firstNumber + +secondNumber;
@@ -60,3 +69,4 @@ function operate (firstNumber, operator, secondNumber) {
         return +firstNumber / +secondNumber;
     }
 }
+
