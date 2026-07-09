@@ -6,6 +6,9 @@ const operators = document.querySelectorAll(".operator")
 const display = document.querySelector("#displayInput");
 // Find the clear button
 const clearBtn = document.querySelector("#clearButton");
+
+
+
 // Calculator status
 let firstNumber;
 let secondNumber;
@@ -44,3 +47,16 @@ operators.forEach((operatorButton) => {
         isWaitingForNewInput = true;
     });
 });
+
+
+function operate (firstNumber, operator, secondNumber) {
+    if (operator === "+") {
+        return +firstNumber + +secondNumber;
+    } else if (operator === "-") {
+        return +firstNumber - +secondNumber;
+    } else if (operator === "x") {
+        return +firstNumber * +secondNumber;
+    } else if (operator === "/") {
+        return +firstNumber / +secondNumber;
+    }
+}
