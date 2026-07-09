@@ -7,7 +7,7 @@ const display = document.querySelector("#displayInput");
 // Find the clear button
 const clearBtn = document.querySelector("#clearButton");
 // Find the equal button
-const equalBtn = document.querySelector('#operatorEquals');
+const equalBtn = document.querySelector('.operatorEquals');
 
 
 
@@ -51,9 +51,13 @@ operators.forEach((operatorButton) => {
 });
 
 
+
+
 // Set up equal button
-equalBtn.addEventListener("click", (e) => {
-    
+equalBtn.addEventListener("click", () => {
+    secondNumber = display.textContent;
+    const result = operate(firstNumber, operator, secondNumber);
+    display.textContent = result;
 });
 
 
