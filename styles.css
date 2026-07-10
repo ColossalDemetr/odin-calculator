@@ -3,7 +3,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 100vw;
+    width: 100vh;
     height: 100vh;
 }
 
@@ -19,6 +19,14 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.number:hover,
+.operator:hover,
+.operatorEquals:hover,
+.operatorDot:hover {
+    background-color: rgb(73, 90, 105);
 }
 
 #firstRow,
@@ -32,12 +40,21 @@ body {
     margin-bottom: 2px;
 }
 
+
+
+
+
 #clearButton {
     border: 1px solid black;
     cursor: pointer;
     width: 20px;
     display: flex;
     justify-content: center;
+    transition: background-color 0.5s ease-out;
+}
+
+#clearButton:hover {
+    background-color: firebrick;
 }
 
 #firstRow {

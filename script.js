@@ -46,6 +46,9 @@ numbers.forEach((number) => {
     });
 });
 
+
+
+
 // Add operators you pressing on a display
 operators.forEach((operatorButton) => {
     operatorButton.addEventListener("click", (e) => {
@@ -69,10 +72,23 @@ operators.forEach((operatorButton) => {
 
 // Set up equal button
 equalBtn.addEventListener("click", () => {
+    if (isWaitingForNewInput) {
+        return;
+    } 
+    
+    if (operator === undefined) {
+        return;
+    }
+    
+    
     secondNumber = display.textContent;
     const result = operate(firstNumber, operator, secondNumber);
     display.textContent = result;
+    firstNumber = result;
+    operator = undefined;
+    isWaitingForNewInput = true;
 });
+
 
 
 
@@ -84,7 +100,13 @@ function operate (firstNumber, operator, secondNumber) {
     } else if (operator === "x") {
         return +firstNumber * +secondNumber;
     } else if (operator === "/") {
+        if (+secondNumber === 0) {
+            return "Cannot divide by 0";
+        } 
+            
         return +firstNumber / +secondNumber;
+        
+        
     }
 }
 
