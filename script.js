@@ -1,13 +1,9 @@
-// Find ALL the number buttons
 const numbers = document.querySelectorAll(".number");
-// Find ALL the operator buttons
 const operators = document.querySelectorAll(".operator")
-// Find the display div
 const display = document.querySelector("#displayInput");
-// Find the clear button
 const clearBtn = document.querySelector("#clearButton");
-// Find the equal button
 const equalBtn = document.querySelector('.operatorEquals');
+
 
 
 
@@ -17,10 +13,19 @@ let secondNumber;
 let operator;
 let isWaitingForNewInput = false;
 
+
+
+
 // Clear button apply
 clearBtn.addEventListener("click", () => {
+    firstNumber = undefined;
+    secondNumber = undefined;
+    operator = undefined;
+    isWaitingForNewInput = false;
     display.textContent = "0";
 });
+
+
 
 
 // Add numbers you pressing on a display
@@ -44,10 +49,19 @@ numbers.forEach((number) => {
 // Add operators you pressing on a display
 operators.forEach((operatorButton) => {
     operatorButton.addEventListener("click", (e) => {
-        firstNumber = display.textContent;
-        operator = e.target.textContent;
-        isWaitingForNewInput = true;
-    });
+        if (operator) {
+            secondNumber = display.textContent;
+            const result = operate(firstNumber, operator, secondNumber);
+            display.textContent = result;
+            firstNumber = result;
+            operator = e.target.textContent;
+            isWaitingForNewInput = true;
+        } else {
+            firstNumber = display.textContent;
+            operator = e.target.textContent;
+            isWaitingForNewInput = true;
+        }
+        }); 
 });
 
 
