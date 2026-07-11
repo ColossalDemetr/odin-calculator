@@ -93,7 +93,7 @@ equalBtn.addEventListener("click", () => {
     //Check if it's number or a string
 
     if (typeof result === "number") {
-        display.textContent = Number(result).toFixed(3);
+        display.textContent = Number(result.toFixed(3));
     } else {
         display.textContent = result;
     }
