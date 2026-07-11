@@ -5,7 +5,7 @@ const clearBtn = document.querySelector("#clearButton");
 const equalBtn = document.querySelector('.operatorEquals');
 
 
-//Error message const
+//Error message
 let errorCannotDivideByNull = "Cannot divide by 0";
 
 // Calculator status
@@ -89,7 +89,15 @@ equalBtn.addEventListener("click", () => {
     
     secondNumber = display.textContent;
     const result = operate(firstNumber, operator, secondNumber);
-    display.textContent = result;
+
+    //Check if it's number or a string
+
+    if (typeof result === "number") {
+        display.textContent = Number(result).toFixed(3);
+    } else {
+        display.textContent = result;
+    }
+
     firstNumber = result;
     operator = undefined;
     isWaitingForNewInput = true;
