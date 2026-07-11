@@ -5,7 +5,8 @@ const clearBtn = document.querySelector("#clearButton");
 const equalBtn = document.querySelector('.operatorEquals');
 
 
-
+//Error message const
+let errorCannotDivideByNull = "Cannot divide by 0";
 
 // Calculator status
 let firstNumber;
@@ -52,18 +53,23 @@ numbers.forEach((number) => {
 // Add operators you pressing on a display
 operators.forEach((operatorButton) => {
     operatorButton.addEventListener("click", (e) => {
-        if (operator) {
-            secondNumber = display.textContent;
-            const result = operate(firstNumber, operator, secondNumber);
-            display.textContent = result;
-            firstNumber = result;
+        if (isWaitingForNewInput) {
             operator = e.target.textContent;
-            isWaitingForNewInput = true;
-        } else {
-            firstNumber = display.textContent;
-            operator = e.target.textContent;
-            isWaitingForNewInput = true;
+            return;
         }
+
+            if (operator !== undefined) {
+                secondNumber = display.textContent;
+                const result = operate(firstNumber, operator, secondNumber);
+                display.textContent = result;
+                firstNumber = result;
+                operator = e.target.textContent;
+                isWaitingForNewInput = true;
+            } else {
+                firstNumber = display.textContent;
+                operator = e.target.textContent;
+                isWaitingForNewInput = true;
+            }
         }); 
 });
 
@@ -101,7 +107,7 @@ function operate (firstNumber, operator, secondNumber) {
         return +firstNumber * +secondNumber;
     } else if (operator === "/") {
         if (+secondNumber === 0) {
-            return "Cannot divide by 0";
+            return errorCannotDivideByNull;
         } 
             
         return +firstNumber / +secondNumber;
