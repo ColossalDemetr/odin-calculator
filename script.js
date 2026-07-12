@@ -4,6 +4,7 @@ const display = document.querySelector("#displayInput");
 const clearBtn = document.querySelector("#clearButton");
 const equalBtn = document.querySelector('.operatorEquals');
 const dotBtn = document.querySelector('.operatorDot');
+const backspaceButton = document.querySelector('.bckspcButton');
 
 
 //Error message
