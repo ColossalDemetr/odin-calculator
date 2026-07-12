@@ -3,6 +3,7 @@ const operators = document.querySelectorAll(".operator")
 const display = document.querySelector("#displayInput");
 const clearBtn = document.querySelector("#clearButton");
 const equalBtn = document.querySelector('.operatorEquals');
+const dotBtn = document.querySelector('.operatorDot');
 
 
 //Error message
@@ -103,7 +104,23 @@ equalBtn.addEventListener("click", () => {
     isWaitingForNewInput = true;
 });
 
+dotBtn.addEventListener("click", (e) => {
 
+    if (isWaitingForNewInput) {
+        display.textContent = "0.";
+        isWaitingForNewInput = false;
+        return;
+    }
+
+
+    if (display.textContent.includes('.')) {
+        return;
+    } 
+    
+    display.textContent = display.textContent + '.';
+
+    
+});
 
 
 function operate (firstNumber, operator, secondNumber) {
