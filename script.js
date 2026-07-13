@@ -124,6 +124,21 @@ dotBtn.addEventListener("click", (e) => {
 });
 
 
+backspaceButton.addEventListener("click", (e) => {
+    if (isWaitingForNewInput) {
+        return;
+    }
+
+    display.textContent = display.textContent.slice(0, -1);
+
+    if (display.textContent === "") {
+        display.textContent = "0";
+    }
+
+});
+
+
+
 function operate (firstNumber, operator, secondNumber) {
     if (operator === "+") {
         return +firstNumber + +secondNumber;
