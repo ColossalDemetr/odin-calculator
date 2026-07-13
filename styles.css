@@ -41,20 +41,31 @@ body {
 }
 
 
+#firstRowButtons {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 0px;
+}
 
 
-
-#clearButton {
+#clearButton,
+.bckspcButton {
     border: 1px solid black;
     cursor: pointer;
     width: 20px;
     display: flex;
     justify-content: center;
+    align-items: center;
     transition: background-color 0.5s ease-out;
 }
 
-#clearButton:hover {
+#clearButton:hover,
+.bckspcButton:hover {
     background-color: firebrick;
+}
+
+#clearButton{
+    border-left: 0;
 }
 
 #firstRow {
