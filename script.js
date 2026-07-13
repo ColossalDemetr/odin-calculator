@@ -1,5 +1,6 @@
 const numbers = document.querySelectorAll(".number");
 const operators = document.querySelectorAll(".operator")
+const multiplyOperator = document.querySelector('#multiplyOperator');
 const display = document.querySelector("#displayInput");
 const clearBtn = document.querySelector("#clearButton");
 const equalBtn = document.querySelector('.operatorEquals');
@@ -49,7 +50,47 @@ numbers.forEach((number) => {
     });
 });
 
+document.addEventListener("keydown", (e) => {
+    numbers.forEach((button) => {
 
+
+        if (button.textContent === e.key) {
+            button.click();
+        }
+    });
+
+
+    operators.forEach((op) => {
+        if (op.textContent === e.key) {
+            op.click();
+        }
+    });
+
+
+    if (e.key === "Enter") {
+        equalBtn.click();
+    }
+
+
+    if (e.key === "Backspace") {
+        backspaceButton.click();
+    }
+
+
+    if (e.key === "c" || e.key === "Escape") {
+        clearBtn.click();
+    }
+
+    if (e.key === ".") {
+        dotBtn.click();
+    }
+
+    if (e.key === "*") {
+        multiplyOperator.click();
+    }
+
+    console.log(e.key);
+});
 
 
 // Add operators you pressing on a display
