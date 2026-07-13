@@ -25,9 +25,7 @@ A calculator application built with HTML, CSS, and JavaScript as part of **The O
 
 ## Screenshot
 
-```md
-![Calculator Screenshot](/odin-calculator/images/calculatorgithubpages.png)
-```
+![Calculator Screenshot](images/calculatorgithubpages.png)
 
 ## Credits
 
